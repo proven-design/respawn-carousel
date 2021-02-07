@@ -328,8 +328,8 @@ var siema_min_1 = siema_min.Siema;
 
 function add_css() {
 	var style = element("style");
-	style.id = 'svelte-1ppqxio-style';
-	style.textContent = ".carousel.svelte-1ppqxio{position:relative;width:100%;justify-content:center;align-items:center}button.svelte-1ppqxio{position:absolute;width:40px;height:40px;top:50%;z-index:50;margin-top:-20px;border:none;background-color:transparent}button.svelte-1ppqxio:focus{outline:none}.left.svelte-1ppqxio{left:2vw}.right.svelte-1ppqxio{right:2vw}ul.svelte-1ppqxio{list-style-type:none;position:absolute;display:flex;justify-content:center;width:100%;margin-top:-30px;padding:0}ul.svelte-1ppqxio li.svelte-1ppqxio{margin:6px;border-radius:100%;background-color:rgba(255,255,255,0.5);height:8px;width:8px}ul.svelte-1ppqxio li.svelte-1ppqxio:hover{background-color:rgba(255,255,255,0.85)}ul.svelte-1ppqxio li.active.svelte-1ppqxio{background-color:rgba(255,255,255,1)}";
+	style.id = 'svelte-txmdna-style';
+	style.textContent = ".carousel.svelte-txmdna{position:relative;width:100%;justify-content:center;align-items:center;cursor:grab}button.svelte-txmdna{position:absolute;width:40px;height:40px;top:50%;z-index:50;margin-top:-20px;border:none;background-color:transparent}button.svelte-txmdna:focus{outline:none}.right.svelte-txmdna{right:-20px;position:fixed;position:absolute;right:0px;height:100%;top:0;display:flex;right:0px;padding:5px;background:#192636;box-shadow:-46px 4px 88px 0px rgba(0, 0, 0, 1);cursor:pointer}.right.svelte-txmdna:hover{background:#66f;transition:400ms}.right.svelte-txmdna .control{height:100%}.right.svelte-txmdna .control svg{border:none}ul.svelte-txmdna{list-style-type:none;position:absolute;display:flex;justify-content:center;width:100%;margin-top:10px;padding:0}ul.svelte-txmdna li.svelte-txmdna{margin:6px;border-radius:100%;background-color:rgba(255, 255, 255, 0.5);height:8px;width:8px}ul.svelte-txmdna li.svelte-txmdna:hover{background-color:rgba(255, 255, 255, 0.85)}ul.svelte-txmdna li.active.svelte-txmdna{background-color:rgba(255, 255, 255, 1)}.slides.svelte-txmdna{width:100%;padding-right:0px;margin-right:0px;padding-top:30px;cursor:grab}.slides.svelte-txmdna>div{display:grid;column-count:3;column-fill:auto;height:60vh;padding-left:10px;grid-template-rows:220px;grid-template-columns:none;grid-auto-flow:column;grid-template-rows:1fr 1fr;grid-auto-flow:column;grid-auto-columns:11%}";
 	append(document.head, style);
 }
 
@@ -343,69 +343,39 @@ function get_each_context(ctx, list, i) {
 const get_right_control_slot_changes = ({}) => ({});
 const get_right_control_slot_context = ({}) => ({});
 
-const get_left_control_slot_changes = ({}) => ({});
-const get_left_control_slot_context = ({}) => ({});
-
-// (6:1) {#if controls}
+// (208:1) {#if controls}
 function create_if_block_1(ctx) {
-	var button0, t, button1, current, dispose;
-
-	const left_control_slot_1 = ctx.$$slots["left-control"];
-	const left_control_slot = create_slot(left_control_slot_1, ctx, get_left_control_slot_context);
+	var button, current, dispose;
 
 	const right_control_slot_1 = ctx.$$slots["right-control"];
 	const right_control_slot = create_slot(right_control_slot_1, ctx, get_right_control_slot_context);
 
 	return {
 		c() {
-			button0 = element("button");
-
-			if (left_control_slot) left_control_slot.c();
-			t = space();
-			button1 = element("button");
+			button = element("button");
 
 			if (right_control_slot) right_control_slot.c();
 
-			attr(button0, "class", "left svelte-1ppqxio");
-			attr(button0, "aria-label", "left");
-
-			attr(button1, "class", "right svelte-1ppqxio");
-			attr(button1, "aria-label", "right");
-
-			dispose = [
-				listen(button0, "click", ctx.left),
-				listen(button1, "click", ctx.right)
-			];
+			attr(button, "class", "right svelte-txmdna");
+			attr(button, "aria-label", "right");
+			dispose = listen(button, "click", ctx.right);
 		},
 
 		l(nodes) {
-			if (left_control_slot) left_control_slot.l(button0_nodes);
-
-			if (right_control_slot) right_control_slot.l(button1_nodes);
+			if (right_control_slot) right_control_slot.l(button_nodes);
 		},
 
 		m(target, anchor) {
-			insert(target, button0, anchor);
-
-			if (left_control_slot) {
-				left_control_slot.m(button0, null);
-			}
-
-			insert(target, t, anchor);
-			insert(target, button1, anchor);
+			insert(target, button, anchor);
 
 			if (right_control_slot) {
-				right_control_slot.m(button1, null);
+				right_control_slot.m(button, null);
 			}
 
 			current = true;
 		},
 
 		p(changed, ctx) {
-			if (left_control_slot && left_control_slot.p && changed.$$scope) {
-				left_control_slot.p(get_slot_changes(left_control_slot_1, ctx, changed, get_left_control_slot_changes), get_slot_context(left_control_slot_1, ctx, get_left_control_slot_context));
-			}
-
 			if (right_control_slot && right_control_slot.p && changed.$$scope) {
 				right_control_slot.p(get_slot_changes(right_control_slot_1, ctx, changed, get_right_control_slot_changes), get_slot_context(right_control_slot_1, ctx, get_right_control_slot_context));
 			}
@@ -413,40 +383,31 @@ function create_if_block_1(ctx) {
 
 		i(local) {
 			if (current) return;
-			transition_in(left_control_slot, local);
 			transition_in(right_control_slot, local);
 			current = true;
 		},
 
 		o(local) {
-			transition_out(left_control_slot, local);
 			transition_out(right_control_slot, local);
 			current = false;
 		},
 
 		d(detaching) {
 			if (detaching) {
-				detach(button0);
-			}
-
-			if (left_control_slot) left_control_slot.d(detaching);
-
-			if (detaching) {
-				detach(t);
-				detach(button1);
+				detach(button);
 			}
 
 			if (right_control_slot) right_control_slot.d(detaching);
-			run_all(dispose);
+			dispose();
 		}
 	};
 }
 
-// (14:4) {#if dots}
+// (216:1) {#if dots}
 function create_if_block(ctx) {
 	var ul;
 
-	var each_value = {length: ctx.totalDots};
+	var each_value = { length: ctx.totalDots };
 
 	var each_blocks = [];
 
@@ -461,7 +422,7 @@ function create_if_block(ctx) {
 			for (var i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].c();
 			}
-			attr(ul, "class", "svelte-1ppqxio");
+			attr(ul, "class", "svelte-txmdna");
 		},
 
 		m(target, anchor) {
@@ -474,7 +435,7 @@ function create_if_block(ctx) {
 
 		p(changed, ctx) {
 			if (changed.isDotActive || changed.currentIndex || changed.totalDots) {
-				each_value = {length: ctx.totalDots};
+				each_value = { length: ctx.totalDots };
 
 				for (var i = 0; i < each_value.length; i += 1) {
 					const child_ctx = get_each_context(ctx, each_value, i);
@@ -505,7 +466,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (16:2) {#each {length: totalDots} as _, i}
+// (218:3) {#each { length: totalDots } as _, i}
 function create_each_block(ctx) {
 	var li, li_class_value, dispose;
 
@@ -516,7 +477,7 @@ function create_each_block(ctx) {
 	return {
 		c() {
 			li = element("li");
-			attr(li, "class", li_class_value = "" + (ctx.isDotActive(ctx.currentIndex, ctx.i) ? "active" : "") + " svelte-1ppqxio");
+			attr(li, "class", li_class_value = "" + (ctx.isDotActive(ctx.currentIndex, ctx.i) ? 'active' : '') + " svelte-txmdna");
 			dispose = listen(li, "click", click_handler);
 		},
 
@@ -526,7 +487,7 @@ function create_each_block(ctx) {
 
 		p(changed, new_ctx) {
 			ctx = new_ctx;
-			if ((changed.currentIndex) && li_class_value !== (li_class_value = "" + (ctx.isDotActive(ctx.currentIndex, ctx.i) ? "active" : "") + " svelte-1ppqxio")) {
+			if ((changed.currentIndex) && li_class_value !== (li_class_value = "" + (ctx.isDotActive(ctx.currentIndex, ctx.i) ? 'active' : '') + " svelte-txmdna")) {
 				attr(li, "class", li_class_value);
 			}
 		},
@@ -562,8 +523,8 @@ function create_fragment(ctx) {
 			t1 = space();
 			if (if_block1) if_block1.c();
 
-			attr(div0, "class", "slides");
-			attr(div1, "class", "carousel svelte-1ppqxio");
+			attr(div0, "class", "slides svelte-txmdna");
+			attr(div1, "class", "carousel svelte-txmdna");
 		},
 
 		l(nodes) {
@@ -656,58 +617,61 @@ function create_fragment(ctx) {
 
 function instance($$self, $$props, $$invalidate) {
 	
-	
-	let { perPage = 3, loop = true, autoplay = 0, duration = 200, easing = 'ease-out', startIndex = 0, draggable = true, multipleDrag = true, dots = true, controls = true, threshold = 20, rtl = false } = $$props;
+
+	let { perPage = 2, loop = false, autoplay = 0, duration = 200, easing = "ease-out", startIndex = 0, draggable = true, multipleDrag = true, dots = true, controls = true, threshold = 20, rtl = false } = $$props;
 	let currentIndex = startIndex;
-	
+
 	let siema;
 	let controller;
 	let timer;
 
 	const dispatch = createEventDispatcher();
-	
+
 	onMount(() => {
 		$$invalidate('controller', controller = new Siema({
 			selector: siema,
-			perPage: typeof perPage === 'object' ? perPage : Number(perPage),
+			perPage: typeof perPage === "object" ? perPage : Number(perPage),
 			loop,
-  			duration,
-  			easing,
-  			startIndex,
-  			draggable,
- 			multipleDrag,
-  			threshold,
-  			rtl,
-			onChange: handleChange
+			duration,
+			easing,
+			startIndex,
+			draggable,
+			multipleDrag,
+			threshold,
+			rtl,
+			onChange: handleChange,
 		}));
-		
-		if(autoplay) {
+
+		if (autoplay) {
 			timer = setInterval(right, autoplay);
 		}
 
 		return () => {
 			autoplay && clearInterval(timer);
 			controller.destroy();
-		}
+		};
 	});
 
-	function isDotActive (currentIndex, dotIndex) {
-        if (currentIndex < 0) currentIndex = pips.length + currentIndex;
-        return currentIndex >= dotIndex*currentPerPage && currentIndex < (dotIndex*currentPerPage)+currentPerPage
-    }
-	
-	function left () {
+	function isDotActive(currentIndex, dotIndex) {
+		if (currentIndex < 0) currentIndex = pips.length + currentIndex;
+		return (
+			currentIndex >= dotIndex * currentPerPage &&
+			currentIndex < dotIndex * currentPerPage + currentPerPage
+		);
+	}
+
+	function left() {
 		controller.prev();
 	}
-	
-	function right () {
+
+	function right() {
 		controller.next();
 	}
 
-	function go (index) {
+	function go(index) {
 		controller.goTo(index);
 	}
-	
+
 	function pause() {
 		clearInterval(timer);
 	}
@@ -718,13 +682,13 @@ function instance($$self, $$props, $$invalidate) {
 		}
 	}
 
-	function handleChange (event) {
+	function handleChange(event) {
 		$$invalidate('currentIndex', currentIndex = controller.currentSlide);
 
-		dispatch('change', {
+		dispatch("change", {
 			currentSlide: controller.currentSlide,
-			slideCount: controller.innerElements.length
-		} );
+			slideCount: controller.innerElements.length,
+		});
 	}
 
 	let { $$slots = {}, $$scope } = $$props;
@@ -735,7 +699,7 @@ function instance($$self, $$props, $$invalidate) {
 	}
 
 	function click_handler({ i }) {
-		return go(i*currentPerPage);
+		return go(i * currentPerPage);
 	}
 
 	$$self.$set = $$props => {
@@ -759,7 +723,9 @@ function instance($$self, $$props, $$invalidate) {
 	$$self.$$.update = ($$dirty = { controller: 1, perPage: 1, currentPerPage: 1 }) => {
 		if ($$dirty.controller) { pips = controller ? controller.innerElements : []; }
 		if ($$dirty.controller || $$dirty.perPage) { $$invalidate('currentPerPage', currentPerPage = controller ? controller.perPage : perPage); }
-		if ($$dirty.controller || $$dirty.currentPerPage) { $$invalidate('totalDots', totalDots = controller ? Math.ceil(controller.innerElements.length / currentPerPage) : []); }
+		if ($$dirty.controller || $$dirty.currentPerPage) { $$invalidate('totalDots', totalDots = controller
+				? Math.ceil(controller.innerElements.length / currentPerPage)
+				: []); }
 	};
 
 	return {
@@ -795,7 +761,7 @@ function instance($$self, $$props, $$invalidate) {
 class Carousel extends SvelteComponent {
 	constructor(options) {
 		super();
-		if (!document.getElementById("svelte-1ppqxio-style")) add_css();
+		if (!document.getElementById("svelte-txmdna-style")) add_css();
 		init(this, options, instance, create_fragment, safe_not_equal, ["perPage", "loop", "autoplay", "duration", "easing", "startIndex", "draggable", "multipleDrag", "dots", "controls", "threshold", "rtl", "isDotActive", "left", "right", "go", "pause", "resume"]);
 	}
 
