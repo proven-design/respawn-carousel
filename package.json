@@ -1,9 +1,9 @@
 {
-  "name": "@respawn/respawn-carousel",
+  "name": "respawn-carousel",
   "svelte": "src/Carousel.svelte",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
-  "version": "2.8.0",
+  "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",
     "dev": "NODE_ENV=development rollup -cw",
@@ -29,7 +29,10 @@
     "flickity",
     "siema"
   ],
-  "repository": "github:proven-design/respawn-carousel",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/proven-design/respawn-carousel.git"
+  },
   "files": [
     "src",
     "dist/index.js",
@@ -37,5 +40,12 @@
   ],
   "dependencies": {
     "siema": "^1.5.1"
-  }
+  },
+  "description": "<p align=\"center\">   <img width=\"186\" height=\"90\" src=\"https://user-images.githubusercontent.com/218949/44782765-377e7c80-ab80-11e8-9dd8-fce0e37c235b.png\" alt=\"respawn\" /> </p>",
+  "bugs": {
+    "url": "https://github.com/proven-design/respawn-carousel/issues"
+  },
+  "homepage": "https://github.com/proven-design/respawn-carousel#readme",
+  "author": "Jonny@respawn",
+  "license": "ISC"
 }
