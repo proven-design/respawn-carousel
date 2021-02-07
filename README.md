@@ -1,10 +1,10 @@
 <p align="center">
-  <img width="186" height="90" src="https://user-images.githubusercontent.com/218949/44782765-377e7c80-ab80-11e8-9dd8-fce0e37c235b.png" alt="Beyonk" />
+  <img width="186" height="90" src="https://user-images.githubusercontent.com/218949/44782765-377e7c80-ab80-11e8-9dd8-fce0e37c235b.png" alt="respawn" />
 </p>
 
 ## Svelte Carousel
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![CircleCI](https://circleci.com/gh/beyonk-adventures/svelte-carousel.svg?style=shield)](https://circleci.com/gh/beyonk-adventures/svelte-carousel) [![svelte-v2](https://img.shields.io/badge/svelte-v2-orange.svg)](https://v2.svelte.dev) [![svelte-v3](https://img.shields.io/badge/svelte-v3-blueviolet.svg)](https://svelte.dev)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![CircleCI](https://circleci.com/gh/proven-design/respawn-carousel.svg?style=shield)](https://circleci.com/gh/proven-design/respawn-carousel) [![svelte-v2](https://img.shields.io/badge/svelte-v2-orange.svg)](https://v2.svelte.dev) [![svelte-v3](https://img.shields.io/badge/svelte-v3-blueviolet.svg)](https://svelte.dev)
 
 Svelte Carousel / Slider
 
@@ -26,7 +26,7 @@ npm run dev # http://localhost:12001
 ### To use within a Svelte application:
 
 ```bash
-npm i -D @beyonk/svelte-carousel
+npm i -D @respawn/respawn-carousel
 ```
 
 ## Usage
@@ -40,7 +40,7 @@ npm i -D @beyonk/svelte-carousel
 </Carousel>
 
 <script>
-	import Carousel from '@beyonk/svelte-carousel'
+	import Carousel from '@respawn/respawn-carousel'
 	import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feather-icons'
 </script>
 ```
